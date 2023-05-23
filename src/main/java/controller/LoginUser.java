@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Userdao;
 import dto.User;
@@ -31,6 +32,11 @@ public class LoginUser extends HttpServlet{
 		{
 			if(user.getPassword().equals(password))
 			{
+				
+				//we wont create the session... we will just get the session
+				HttpSession session= req.getSession();
+				session.setAttribute("user", user);
+				
 				resp.getWriter().print("<h1 style='color:green'>Login Succuessful</h1>");
 				req.getRequestDispatcher("UserHome.html").include(req, resp);
 			}

@@ -23,8 +23,7 @@
 <th>Time of Arrival</th>
 <th>Ticket Price</th>
 <th>Available Days</th>
-<th>Delete</th>
-<th>Edit</th>
+<th>Book</th>
 </tr>
 
 <%for(Train train:list){ %>
@@ -36,11 +35,11 @@
 <th><%=Arrays.toString(train.getStation()) %></th>
 <th><%=train.getTime()[0] %></th>
 <th><%=train.getTime()[train.getTime().length-1] %></th>
-<th><%=Arrays.toString(train.getPrice()) %></th>
 <th><%=Arrays.toString(train.getDays()) %></th>
-<th><button>book</button></th>
+<th><a href="BookTicket.jsp?tn=<%=train.getNumber()%>"><button>book</button></a></th>
 </tr>
 <%} %>
-</table>
+</table><br>
+<a href="UserHome.html"><button>Back</button></a>
 </body>
 </html>
